@@ -1,83 +1,156 @@
-body { 
-    background-color: rgb(64, 188, 226);
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    color: #111;
-    padding-bottom: 120px;
+/* ==========================================================================
+   Estilos Globais e Variáveis de Cores
+   ========================================================================== */
+:root {
+    --bg-primary: #0f172a;
+    --bg-card: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #8b5cf6;
+    --accent-hover: #a855f7;
+    --accent-glow: rgba(139, 92, 246, 0.4);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-.cabecalho {
-    background-color: black;
-    color: whitesmoke;
-    padding: 20px;
-    text-align: center;
-}
-
-.menu {
-    text-align: right;
-    padding: 10px 40px;
-}
-
-.menu ul {
-    list-style: none;
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.menu li {
-    display: inline-block;
-    margin-left: 20px;
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    /* Efeito de transição de entrada de página */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.menu li a {
-    text-decoration: none;
-    color: aliceblue;
-    font-size: 18px;
-    font-weight: bold;
+body.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-
-.menu li a:hover {
-    color: aliceblue;
+/* ==========================================================================
+   Cabeçalho e Título
+   ========================================================================== */
+.cabecalho {
+    margin: 30px 0 20px 0;
+    text-align: center;
 }
 
 #titulo {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
 }
 
-p {
-    margin: 15px 20%;
-    line-height: 1.5;
-    font-size: 18px;
+/* ==========================================================================
+   Menu de Navegação
+   ========================================================================== */
+.menu {
+    margin-bottom: 40px;
+}
+
+.menu ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    background: var(--bg-card);
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: #fff;
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* ==========================================================================
+   Conteúdo Principal (Cartão da Bio)
+   ========================================================================== */
+main, .container {
+    max-width: 750px;
+    width: 100%;
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .imgcentro {
-    display: block;
-    margin: 20px auto;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 25px var(--accent-glow);
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
 }
 
-button {
-    font-size: 16px;
-    color: rgb(255, 0, 132);
+.imgcentro:hover {
+    transform: scale(1.05);
 }
 
+p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Rodapé (Footer)
+   ========================================================================== */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(51, 8, 243);
-    color: white;
-    font-size: 16px;
-    width: 100%;
+    margin-top: auto;
+    padding: 30px 0 10px 0;
     text-align: center;
-    padding: 10px 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
-footer p {
-    margin: 0;
-    font-size: 14px;
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
