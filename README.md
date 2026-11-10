@@ -1,2 +1,2 @@
-# mulheres-IA-Bruno
-Site das mulheres na tecnologia com IA
+# mulheres_tecnologia
+Site para ser finalizado pelos estudantes. 
